@@ -1,4 +1,4 @@
-export type NavTab = 'home' | 'indagini' | 'metodologie' | 'contatti' | 'triage';
+export type NavTab = 'home' | 'elena' | 'indagini' | 'metodologie' | 'contatti' | 'triage';
 
 export interface TeamMember {
   id: string;

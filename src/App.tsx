@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
 import { Footer } from './components/Footer';
 import { HomeView } from './components/HomeView';
+import { ElenaAngeliniView } from './components/ElenaAngeliniView';
 import { IndaginiView } from './components/IndaginiView';
 import { MetodologieView } from './components/MetodologieView';
 import { ContattiView } from './components/ContattiView';
@@ -11,7 +12,7 @@ import { DetailDrawer } from './components/DetailDrawer';
 import { TriageModal } from './components/TriageModal';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<NavTab>('home');
+  const [currentTab, setCurrentTab] = useState<NavTab>('elena');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedMethodology, setSelectedMethodology] = useState<Methodology | null>(null);
   const [selectedDossier, setSelectedDossier] = useState<Dossier | null>(null);
@@ -56,6 +57,12 @@ export default function App() {
         {currentTab === 'home' && (
           <HomeView
             setCurrentTab={setCurrentTab}
+            onOpenTriage={() => handleOpenTriage()}
+          />
+        )}
+
+        {currentTab === 'elena' && (
+          <ElenaAngeliniView
             onOpenTriage={() => handleOpenTriage()}
           />
         )}

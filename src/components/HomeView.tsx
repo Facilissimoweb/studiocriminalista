@@ -13,38 +13,48 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
   return (
     <div className="space-y-16 md:space-y-24 pb-12">
       {/* Hero Section */}
-      <section className="relative min-h-[600px] md:min-h-[680px] flex items-center justify-center overflow-hidden data-grid-bg border-b border-[#c5c6cd]">
-        {/* Registration corner marks */}
-        <div className="hidden sm:block absolute top-6 left-6 registration-mark mark-tl"></div>
-        <div className="hidden sm:block absolute top-6 right-6 registration-mark mark-tr"></div>
-        <div className="hidden sm:block absolute bottom-6 left-6 registration-mark mark-bl"></div>
-        <div className="hidden sm:block absolute bottom-6 right-6 registration-mark mark-br"></div>
+      <section className="relative min-h-[620px] md:min-h-[720px] flex items-center justify-center overflow-hidden border-b border-[#c5c6cd]">
+        {/* Full-bleed background image with dark overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1920"
+            alt="Studio Criminalistica Hero Background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/55 backdrop-blur-[1px]"></div>
+        </div>
 
-        <div className="container mx-auto px-6 md:px-12 py-12 relative z-10 grid md:grid-cols-12 gap-8 items-center">
+        {/* Registration corner marks */}
+        <div className="hidden sm:block absolute top-6 left-6 registration-mark mark-tl border-white/40"></div>
+        <div className="hidden sm:block absolute top-6 right-6 registration-mark mark-tr border-white/40"></div>
+        <div className="hidden sm:block absolute bottom-6 left-6 registration-mark mark-bl border-white/40"></div>
+        <div className="hidden sm:block absolute bottom-6 right-6 registration-mark mark-br border-white/40"></div>
+
+        <div className="container mx-auto px-6 md:px-12 py-16 relative z-10 grid md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-8 flex flex-col justify-center space-y-6">
-            <div className="inline-flex items-center gap-2 bg-[#00677f]/10 border border-[#00677f] px-3 py-1 w-fit">
-              <span className="w-2 h-2 bg-[#00d2ff] animate-pulse"></span>
-              <span className="font-mono-tech text-xs text-[#00677f] font-bold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 bg-[#00677f]/30 border border-[#00d2ff]/60 px-3 py-1.5 w-fit backdrop-blur-sm">
+              <span className="w-2.5 h-2.5 bg-[#00d2ff] rounded-full animate-pulse"></span>
+              <span className="font-mono-tech text-xs text-[#00d2ff] font-bold uppercase tracking-widest">
                 Forensic Intelligence & Taskforce
               </span>
             </div>
 
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#000000] max-w-3xl leading-[1.1] tracking-tight">
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white max-w-3xl leading-[1.1] tracking-tight drop-shadow-md">
               Ogni persona ha il diritto di essere difesa con la{' '}
-              <span className="text-[#00677f] italic underline decoration-[#00d2ff] decoration-4">scienza.</span>
+              <span className="text-[#00d2ff] italic underline decoration-[#00d2ff] decoration-4">scienza.</span>
             </h1>
 
-            <p className="font-body text-base md:text-lg text-[#44474d] max-w-2xl leading-relaxed">
+            <p className="font-body text-base md:text-lg text-gray-200 max-w-2xl leading-relaxed">
               Il rigore metodologico al servizio della verità. Studio di criminalistica specializzato in indagini difensive, perizie medico-legali e digital forensics avanzata.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <button
                 onClick={onOpenTriage}
-                className="bg-[#000000] text-white px-8 py-4 font-mono-tech text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 group hover:bg-[#00677f] transition-all shadow-md active:scale-98"
+                className="bg-[#00d2ff] text-black px-8 py-4 font-mono-tech text-xs uppercase tracking-widest font-extrabold flex items-center justify-center gap-2 group hover:bg-white transition-all shadow-lg active:scale-98"
               >
                 <span>INIZIA INDAGINE</span>
-                <ArrowRight className="w-4 h-4 text-[#00d2ff] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
@@ -52,7 +62,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
                   setCurrentTab('contatti');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="border border-[#00677f] text-[#00677f] px-8 py-4 font-mono-tech text-xs uppercase tracking-widest font-bold hover:bg-[#00677f]/10 transition-colors active:scale-98 text-center"
+                className="border border-white/70 text-white bg-black/40 backdrop-blur-sm px-8 py-4 font-mono-tech text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-black transition-all active:scale-98 text-center"
               >
                 CONTATTA LO STUDIO
               </button>
@@ -61,18 +71,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
 
           {/* Evidence Highlight Image Box */}
           <div className="hidden md:flex md:col-span-4 justify-end items-center">
-            <div className="relative w-full aspect-square border border-[#75777e] p-2 bg-[#ffffff] shadow-xl overflow-hidden group">
-              <div className="absolute inset-0 bg-[#00677f]/5 group-hover:bg-transparent transition-colors z-10"></div>
+            <div className="relative w-full aspect-square border border-white/30 p-2 bg-black/60 shadow-2xl overflow-hidden group backdrop-blur-md">
+              <div className="absolute inset-0 bg-[#00677f]/20 group-hover:bg-transparent transition-colors z-10"></div>
               <img
                 src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800"
                 alt="Forensic Evidence Analysis"
-                className="w-full h-full object-cover grayscale brightness-95 group-hover:grayscale-0 transition-all duration-700 scale-105"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
               />
-              <div className="absolute top-4 left-4 z-20 font-mono-tech text-[10px] bg-[#000000] text-white px-2.5 py-1 uppercase tracking-wider">
-                EVIDENCE_REF: 00249-X
-              </div>
-              <div className="absolute bottom-4 right-4 z-20 font-mono-tech text-[10px] bg-[#00677f] text-white px-2 py-0.5 uppercase">
-                ISO/IEC 17025
+              <div className="absolute bottom-3 left-3 right-3 bg-black/80 border border-white/20 p-2 z-20">
+                <span className="font-mono-tech text-[10px] text-[#00d2ff] uppercase font-bold block">LAB_REPORT // LIVE_FEED</span>
+                <span className="font-mono-tech text-[9px] text-gray-300 uppercase block">EVIDENCE SCANNER ONLINE</span>
               </div>
             </div>
           </div>

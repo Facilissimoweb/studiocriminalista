@@ -25,21 +25,37 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
   };
 
   return (
-    <div className="space-y-16 md:space-y-20 pb-16 pt-6">
-      {/* Page Header */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#c5c6cd] pb-6 gap-6">
-          <div className="space-y-3">
-            <span className="font-mono-tech text-xs text-[#00677f] tracking-[0.2em] uppercase font-bold block">
-              SERVICE PORTFOLIO V.4.0
-            </span>
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#000000]">
-              Aree di Intervento e Metodologia Taskforce
-            </h1>
-          </div>
-          <div className="hidden md:block text-right font-mono-tech text-xs text-[#75777e]">
-            <p className="uppercase font-bold text-[#00677f]">COORDINATE SYSTEM</p>
-            <p className="text-[#44474d] font-bold">41°54'10"N 12°29'47"E</p>
+    <div className="space-y-16 md:space-y-20 pb-16">
+      {/* Hero Section */}
+      <section className="relative min-h-[480px] md:min-h-[550px] flex items-center overflow-hidden border-b border-[#c5c6cd]">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1920"
+            alt="Aree di Intervento e Metodologia Taskforce Hero"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/60"></div>
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 py-16 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-4 max-w-3xl">
+              <span className="font-mono-tech text-xs text-[#00d2ff] tracking-[0.2em] uppercase font-bold block bg-[#00677f]/40 border border-[#00d2ff]/60 px-3 py-1 w-fit backdrop-blur-sm">
+                SERVICE PORTFOLIO V.4.0 // TASKFORCE INDEX
+              </span>
+              <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
+                Aree di Intervento e Metodologia Taskforce
+              </h1>
+              <p className="font-body text-base text-gray-200 leading-relaxed max-w-2xl">
+                Protocolli investigativi integrati per la difesa penale, analisi criminologica di casi complessi, digital forensics certificata e perizie medico-legali.
+              </p>
+            </div>
+            <div className="hidden md:block text-right font-mono-tech text-xs text-gray-300 bg-black/60 p-4 border border-white/20 backdrop-blur-md">
+              <p className="uppercase font-bold text-[#00d2ff]">COORDINATE SYSTEM</p>
+              <p className="text-white font-bold">41°54'10"N 12°29'47"E</p>
+              <p className="text-[10px] text-gray-400 mt-1">EVIDENCE CHAIN CERTIFIED</p>
+            </div>
           </div>
         </div>
       </section>

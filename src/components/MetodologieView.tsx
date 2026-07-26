@@ -36,18 +36,37 @@ export const MetodologieView: React.FC<MetodologieViewProps> = ({
   const paginatedItems = filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
-    <div className="space-y-12 pb-16 pt-6">
-      {/* Header Section */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto border-l-4 border-[#000000] pl-6 py-2">
-        <span className="font-mono-tech text-xs text-[#00677f] uppercase tracking-[0.2em] block mb-2 font-bold">
-          Technical Registry / Forensic Index
-        </span>
-        <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#000000] max-w-4xl">
-          Indice Completo delle Metodologie & Protocolli Scientifici
-        </h1>
+    <div className="space-y-12 pb-16">
+      {/* Hero Section */}
+      <section className="relative min-h-[460px] md:min-h-[520px] flex items-center overflow-hidden border-b border-[#c5c6cd]">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=1920"
+            alt="Metodologie e Protocolli Scientifici Hero Background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/60"></div>
+        </div>
 
-        {/* Search & Filter Bar */}
-        <div className="mt-8 flex flex-col md:flex-row gap-4 items-stretch justify-between border-t border-[#c5c6cd] pt-6">
+        <div className="container mx-auto px-6 md:px-12 py-16 relative z-10">
+          <div className="space-y-4 max-w-4xl">
+            <span className="font-mono-tech text-xs text-[#00d2ff] uppercase tracking-[0.2em] font-bold block bg-[#00677f]/40 border border-[#00d2ff]/60 px-3 py-1 w-fit backdrop-blur-sm">
+              TECHNICAL REGISTRY // FORENSIC INDEX V.2
+            </span>
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
+              Indice Completo delle Metodologie & Protocolli Scientifici
+            </h1>
+            <p className="font-body text-base text-gray-200 leading-relaxed max-w-2xl">
+              Consulta il registro dei protocolli di analisi operativi conformi agli standard internazionali ISO/IEC 17025 e ISO/IEC 27037 per le scienze forensi.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Search & Filter Bar Section */}
+      <section className="px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-4 items-stretch justify-between border-t border-[#c5c6cd] pt-6">
           <div className="flex-1 relative">
             <label className="font-mono-tech text-[10px] text-[#75777e] uppercase mb-1 block">
               Cerca Protocollo o Codice Metodologico

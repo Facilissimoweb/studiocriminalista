@@ -23,18 +23,32 @@ export const ContattiView: React.FC<ContattiViewProps> = ({ onOpenTriage }) => {
   };
 
   return (
-    <div className="space-y-16 md:space-y-24 pb-16 pt-6">
-      {/* Header */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto border-l-4 border-[#00677f] pl-6 py-2">
-        <span className="font-mono-tech text-xs text-[#00677f] uppercase tracking-[0.2em] font-bold block mb-2">
-          UNIT CODE: EA-CNTC-2024
-        </span>
-        <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#000000] mb-4">
-          Contatti & Forensic Taskforce
-        </h1>
-        <p className="max-w-2xl font-body text-base text-[#44474d] leading-relaxed">
-          Accesso diretto ai protocolli investigativi. Il nostro team di esperti opera attraverso una metodologia di Taskforce integrata per garantire la massima precisione scientifica in ambito forense.
-        </p>
+    <div className="space-y-16 md:space-y-24 pb-16">
+      {/* Hero Section */}
+      <section className="relative min-h-[460px] md:min-h-[520px] flex items-center overflow-hidden border-b border-[#c5c6cd]">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920"
+            alt="Contatti & Forensic Taskforce Hero Background"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/60"></div>
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 py-16 relative z-10">
+          <div className="space-y-4 max-w-3xl">
+            <span className="font-mono-tech text-xs text-[#00d2ff] uppercase tracking-[0.2em] font-bold block bg-[#00677f]/40 border border-[#00d2ff]/60 px-3 py-1 w-fit backdrop-blur-sm">
+              UNIT CODE: EA-CNTC-2024 // DIRECT LINE
+            </span>
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
+              Contatti & Forensic Taskforce
+            </h1>
+            <p className="font-body text-base text-gray-200 leading-relaxed max-w-2xl">
+              Accesso diretto ai protocolli investigativi. Il nostro team di esperti opera attraverso una metodologia di Taskforce integrata per garantire la massima precisione scientifica in ambito forense.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Team Operativo Section */}
