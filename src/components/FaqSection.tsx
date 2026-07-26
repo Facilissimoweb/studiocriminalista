@@ -104,18 +104,18 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenTriage, onContactC
                 >
                   <button
                     onClick={() => toggleAccordion(faq.id)}
-                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-body"
+                    className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-3 sm:gap-4 font-body"
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="font-mono-tech text-xs font-bold text-[#00677f] uppercase bg-[#00677f]/10 px-2 py-0.5 shrink-0 mt-0.5">
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 flex-1">
+                      <span className="font-mono-tech text-[10px] sm:text-xs font-bold text-[#00677f] uppercase bg-[#00677f]/10 border border-[#00677f]/30 px-2 py-0.5 shrink-0 w-fit">
                         {faq.category}
                       </span>
-                      <span className="font-headline font-bold text-base md:text-lg text-[#000000]">
+                      <span className="font-headline font-bold text-sm sm:text-base md:text-lg text-[#000000] leading-snug">
                         {faq.question}
                       </span>
                     </div>
 
-                    <div className="text-[#00677f] shrink-0 p-1">
+                    <div className="text-[#00677f] shrink-0 p-1 mt-0.5">
                       {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                     </div>
                   </button>
