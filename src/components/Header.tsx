@@ -101,7 +101,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenTriage}
-            className="font-mono-tech text-[11px] uppercase tracking-wider bg-[#000000] text-white px-4 py-2 hover:bg-[#00677f] transition-all flex items-center gap-2 border border-[#000000]"
+            className="font-mono-tech text-[11px] uppercase tracking-wider bg-[#000000] text-white font-bold px-4 py-2 hover:bg-[#00677f] transition-all flex items-center gap-2"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#00d2ff]" />
             Analisi Caso
@@ -122,7 +122,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Expandable Search Overlay */}
       {searchBarOpen && (
-        <div className="fixed top-16 left-0 w-full z-40 bg-[#1b1b1d] text-white p-4 border-b border-[#00d2ff]/40 shadow-xl animate-in slide-in-from-top-2">
+        <div className="fixed top-16 left-0 w-full z-40 bg-[#1b1b1d] text-white p-4 border-b border-[#00677f] shadow-xl animate-in slide-in-from-top-2">
           <form onSubmit={handleSearchSubmit} className="max-w-4xl mx-auto flex items-center gap-3">
             <Search className="w-5 h-5 text-[#00d2ff] shrink-0" />
             <input
@@ -205,7 +205,7 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenTriage();
               }}
-              className="w-full bg-[#000000] text-white py-3 font-mono-tech text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2"
+              className="w-full bg-[#000000] text-white py-3 font-mono-tech text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 hover:bg-[#00677f] transition-colors"
             >
               <ShieldCheck className="w-4 h-4 text-[#00d2ff]" />
               Avvia Valutazione Caso

@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavTab } from '../types';
-import { EvidenceScannerWidget } from './EvidenceScannerWidget';
 import { TestimonialsSection } from './TestimonialsSection';
 import { FaqSection } from './FaqSection';
 import { ArrowRight, FolderKanban, Box, Brain, Dna, Gavel } from 'lucide-react';
@@ -14,9 +13,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
   return (
     <div className="space-y-16 md:space-y-24 pb-12">
       {/* Hero Section */}
-      <section className="relative min-h-[640px] md:min-h-[720px] flex items-center justify-center overflow-hidden data-grid-bg border-b border-[#c5c6cd]">
-        <div className="scanner-line opacity-30"></div>
-        
+      <section className="relative min-h-[600px] md:min-h-[680px] flex items-center justify-center overflow-hidden data-grid-bg border-b border-[#c5c6cd]">
         {/* Registration corner marks */}
         <div className="hidden sm:block absolute top-6 left-6 registration-mark mark-tl"></div>
         <div className="hidden sm:block absolute top-6 right-6 registration-mark mark-tr"></div>
@@ -99,7 +96,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
               Lo Studio Elena Angelini nasce con una missione precisa: rendere la scienza accessibile alla difesa. Crediamo che il diritto di essere difesi non debba dipendere dalla reputazione o dal reddito, ma dalla qualità tecnica degli accertamenti.
             </p>
             <p className="font-body text-sm text-[#44474d] leading-relaxed">
-              Operiamo con assoluta indipendenza e rigore, fornendo consulenza criminalistica avanzata a studi legali e privati. In un sistema penale complesso, la verità non emerge spontaneamente: deve essere estratta dai dati, dai reperti e dalle testimonianze attraverso metodologies validate dalla comunità scientifica internazionale.
+              Operiamo con assoluta indipendenza e rigore, fornendo consulenza criminalistica avanzata a studi legali e privati. In un sistema penale complesso, la verità non emerge spontaneamente: deve essere estratta dai dati, dai reperti e dalle testimonianze attraverso metodologie validate dalla comunità scientifica internazionale.
             </p>
 
             <div className="pt-6 border-t border-[#c5c6cd] grid grid-cols-3 gap-4 text-center sm:text-left">
@@ -174,11 +171,6 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Interactive Evidence Scanner Section */}
-      <section className="container mx-auto px-6 md:px-12">
-        <EvidenceScannerWidget />
       </section>
 
       {/* Testimonials - Dicono di Noi */}

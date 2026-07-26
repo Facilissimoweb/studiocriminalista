@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FAQ_ITEMS } from '../data/forensicData';
-import { HelpCircle, ChevronDown, ChevronUp, Search, MessageSquare, ShieldCheck, PhoneCall } from 'lucide-react';
+import { HelpCircle, ChevronDown, ChevronUp, Search, MessageSquare } from 'lucide-react';
 
 interface FaqSectionProps {
   onOpenTriage?: () => void;
@@ -46,14 +46,14 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenTriage, onContactC
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="bg-[#ffffff] p-4 border border-[#c5c6cd] mb-8 space-y-4 shadow-xs">
+        <div className="bg-[#ffffff] p-4 border border-[#c5c6cd] mb-8 space-y-4">
           <div className="relative">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cerca tra le domande (es: art. 391-bis, costi, reperti, WhatsApp, riservatezza)..."
-              className="w-full bg-[#f5f3f5] border border-[#c5c6cd] h-11 pl-10 pr-4 font-mono-tech text-xs text-[#1b1b1d] focus:outline-none focus:border-[#00677f]"
+              className="w-full bg-[#f5f3f5] border border-[#c5c6cd] h-11 pl-10 pr-4 font-mono-tech text-xs text-[#1b1b1d] focus:outline-none focus:border-[#00677f] placeholder:text-[#75777e]"
             />
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#75777e]" />
           </div>
@@ -84,7 +84,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenTriage, onContactC
             {onContactClick && (
               <button
                 onClick={onContactClick}
-                className="px-5 py-2.5 bg-[#000000] text-white font-mono-tech text-xs uppercase font-bold"
+                className="px-5 py-2.5 bg-[#000000] text-white font-mono-tech text-xs uppercase font-bold hover:bg-[#00677f]"
               >
                 Contatta la Taskforce
               </button>
@@ -165,3 +165,4 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenTriage, onContactC
     </section>
   );
 };
+

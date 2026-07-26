@@ -3,7 +3,7 @@ import { DOSSIERS } from '../data/forensicData';
 import { Dossier } from '../types';
 import { TestimonialsSection } from './TestimonialsSection';
 import { FaqSection } from './FaqSection';
-import { ChevronDown, ChevronUp, ShieldCheck, Microscope, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface IndaginiViewProps {
   onOpenDossier: (dossier: Dossier) => void;
@@ -39,7 +39,7 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
           </div>
           <div className="hidden md:block text-right font-mono-tech text-xs text-[#75777e]">
             <p className="uppercase font-bold text-[#00677f]">COORDINATE SYSTEM</p>
-            <p className="text-[#1b1b1d] font-bold">41°54'10"N 12°29'47"E</p>
+            <p className="text-[#44474d] font-bold">41°54'10"N 12°29'47"E</p>
           </div>
         </div>
       </section>
@@ -48,7 +48,7 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
       <section className="px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           
-          <div className="md:col-span-5 relative p-6 sm:p-8 border border-[#000000] bg-[#ffffff] shadow-sm flex flex-col justify-between">
+          <div className="md:col-span-5 relative p-6 sm:p-8 border border-[#000000] bg-[#ffffff] shadow-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Users className="w-5 h-5 text-[#00677f]" />
@@ -92,7 +92,7 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
               className="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700"
             />
             <div className="absolute inset-0 bg-[#00677f]/10 pointer-events-none"></div>
-            <div className="absolute bottom-4 left-4 bg-[#000000] text-white p-3 font-mono-tech text-[10px] uppercase tracking-wider border border-gray-700">
+            <div className="absolute bottom-4 left-4 bg-[#000000] text-white p-3 font-mono-tech text-[10px] uppercase tracking-wider border border-gray-700 font-bold">
               Ref: LAB_PROC_772 // Environment: Analysis Room A
             </div>
           </div>
@@ -119,7 +119,7 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
                 className={`px-3 py-1.5 transition-colors uppercase ${
                   activeCategory === cat
                     ? 'bg-[#000000] text-white font-bold'
-                    : 'bg-[#efedef] text-[#44474d] hover:bg-[#eae7ea]'
+                    : 'bg-[#efedef] text-[#44474d] border border-[#c5c6cd] hover:bg-[#eae7ea]'
                 }`}
               >
                 {cat}
@@ -167,14 +167,14 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
                           Report: {dossier.status}
                         </span>
                         <button className="p-1 text-[#75777e] hover:text-[#000000]">
-                          {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                          {isExpanded ? <ChevronUp className="w-5 h-5 text-[#00677f]" /> : <ChevronDown className="w-5 h-5 text-[#00677f]" />}
                         </button>
                       </div>
                     </div>
 
                     {/* Expandable Body */}
                     {isExpanded && (
-                      <div className="pt-4 border-t border-[#c5c6cd] mt-4 animate-in fade-in slide-in-from-top-1">
+                      <div className="pt-4 border-t border-[#efedef] mt-4 animate-in fade-in slide-in-from-top-1">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                           <div>
                             <p className="font-body text-sm text-[#44474d] leading-relaxed mb-4">
@@ -220,7 +220,7 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
                         className="cursor-pointer mt-2 flex justify-between items-center font-mono-tech text-[10px] text-[#75777e] uppercase hover:text-[#00677f]"
                       >
                         <span>Espandi per consultare il protocollo dettagliato</span>
-                        <span className="h-0.5 w-16 bg-[#c5c6cd]"></span>
+                        <span className="h-0.5 w-16 bg-[#efedef]"></span>
                       </div>
                     )}
                   </div>
@@ -234,15 +234,15 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
       {/* High Precision Metrics Banner */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto">
         <div className="bg-[#000000] text-white p-8 border border-[#39475f] grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="p-4 border-r border-gray-800 last:border-r-0">
+          <div className="p-4 border-r border-[#39475f] last:border-r-0">
             <span className="font-mono-tech text-3xl font-extrabold text-[#00d2ff] block mb-1">98%</span>
             <span className="font-mono-tech text-[10px] uppercase text-gray-400">Technical Accuracy</span>
           </div>
-          <div className="p-4 border-r border-gray-800 last:border-r-0">
+          <div className="p-4 border-r border-[#39475f] last:border-r-0">
             <span className="font-mono-tech text-3xl font-extrabold text-[#00d2ff] block mb-1">15+</span>
             <span className="font-mono-tech text-[10px] uppercase text-gray-400">Specialized Experts</span>
           </div>
-          <div className="p-4 border-r border-gray-800 last:border-r-0">
+          <div className="p-4 border-r border-[#39475f] last:border-r-0">
             <span className="font-mono-tech text-3xl font-extrabold text-[#00d2ff] block mb-1">24/7</span>
             <span className="font-mono-tech text-[10px] uppercase text-gray-400">Evidence Processing</span>
           </div>
@@ -261,4 +261,5 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
     </div>
   );
 };
+
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TESTIMONIALS } from '../data/forensicData';
-import { Quote, CheckCircle2, ShieldCheck, UserCheck, Briefcase, Award } from 'lucide-react';
+import { Quote, CheckCircle2, UserCheck, Briefcase, Award } from 'lucide-react';
 
 interface TestimonialsSectionProps {
   onOpenTriage?: () => void;
@@ -32,12 +32,12 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
               Casi Reali & Risultati per la Nostra Clientela
             </h2>
             <p className="font-body text-sm md:text-base text-[#44474d] max-w-3xl leading-relaxed">
-              I successi e la versatilità dello Studio Elena Angelini sono confermati dai risultati concrete e misurabili ottenuti per una clientela variegata: da dirigenti d'azienda a lavoratori, famiglie, legali ed enti educativi.
+              I successi e la versatilità dello Studio Elena Angelini sono confermati dai risultati concreti e misurabili ottenuti per una clientela variegata: da dirigenti d'azienda a lavoratori, famiglie, legali ed enti educativi.
             </p>
           </div>
 
           <div className="flex items-center gap-2 font-mono-tech text-xs text-[#00677f] font-bold shrink-0">
-            <Award className="w-4 h-4" />
+            <Award className="w-4 h-4 text-[#00677f]" />
             <span>8/8 ESITI VERIFICATI</span>
           </div>
         </div>
@@ -137,3 +137,4 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
     </section>
   );
 };
+

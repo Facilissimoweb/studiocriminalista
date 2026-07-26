@@ -31,25 +31,6 @@
   background-size: 32px 32px;
 }
 
-.scanner-line {
-  height: 2px;
-  background: #00d2ff;
-  box-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-  animation: scan 4s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes scan {
-  0% { top: 0%; opacity: 0.2; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { top: 98%; opacity: 0.2; }
-}
-
 /* Registration marks (+) */
 .registration-mark {
   position: relative;
@@ -73,4 +54,5 @@
 .pb-safe {
   padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px);
 }
+
 
