@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-[#44474d] font-bold hover:text-[#00677f]'
             }`}
           >
-            Metodologie
+            Servizi
           </button>
           <button
             onClick={() => handleNavClick('contatti')}
@@ -205,7 +205,7 @@ export const Header: React.FC<HeaderProps> = ({
               }`}
             >
               <Microscope className="w-5 h-5 text-[#00677f]" />
-              Metodologie Scientifiche
+              Servizi & Protocolli
             </button>
 
             <button

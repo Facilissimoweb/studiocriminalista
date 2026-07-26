@@ -52,13 +52,13 @@ export const MetodologieView: React.FC<MetodologieViewProps> = ({
         <div className="container mx-auto px-6 md:px-12 py-16 relative z-10">
           <div className="space-y-4 max-w-4xl">
             <span className="font-mono-tech text-xs text-[#00d2ff] uppercase tracking-[0.2em] font-bold block bg-[#00677f]/40 border border-[#00d2ff]/60 px-3 py-1 w-fit backdrop-blur-sm">
-              TECHNICAL REGISTRY // FORENSIC INDEX V.2
+              TECHNICAL REGISTRY // SERVICES & FORENSIC INDEX V.2
             </span>
             <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
-              Indice Completo delle Metodologie & Protocolli Scientifici
+              Indice Completo dei Servizi & Protocolli Scientifici
             </h1>
             <p className="font-body text-base text-gray-200 leading-relaxed max-w-2xl">
-              Consulta il registro dei protocolli di analisi operativi conformi agli standard internazionali ISO/IEC 17025 e ISO/IEC 27037 per le scienze forensi.
+              Consulta il registro completo dei servizi peritali e dei protocolli d'analisi operativi conformi agli standard internazionali ISO/IEC 17025 e ISO/IEC 27037 per le scienze forensi.
             </p>
           </div>
         </div>
@@ -69,7 +69,7 @@ export const MetodologieView: React.FC<MetodologieViewProps> = ({
         <div className="flex flex-col md:flex-row gap-4 items-stretch justify-between border-t border-[#c5c6cd] pt-6">
           <div className="flex-1 relative">
             <label className="font-mono-tech text-[10px] text-[#75777e] uppercase mb-1 block">
-              Cerca Protocollo o Codice Metodologico
+              Cerca Servizio, Protocollo o Codice
             </label>
             <div className="relative">
               <input

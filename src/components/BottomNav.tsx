@@ -67,7 +67,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, setCurrentTab 
         }`}
       >
         <Microscope className="w-5 h-5 mb-0.5" />
-        <span className="font-mono-tech text-[10px]">Metodi</span>
+        <span className="font-mono-tech text-[10px]">Servizi</span>
       </button>
 
       <button

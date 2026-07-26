@@ -40,7 +40,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentTab }) => {
           onClick={() => { setCurrentTab('metodologie'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} 
           className="hover:text-[#000000] transition-colors"
         >
-          Metodologie
+          Servizi & Protocolli
         </button>
         <button 
           onClick={() => { setCurrentTab('contatti'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} 
