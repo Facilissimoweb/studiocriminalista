@@ -1,0 +1,6 @@
+{
+  "name": "Elena Angelini - Studio Criminalistica",
+  "description": "Piattaforma mobile-first di analisi criminalistica, indagini difensive e protocolli medico-legali e digitali ad alta precisione.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

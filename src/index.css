@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fbf9fb;
+    color: #1b1b1d;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-headline {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom forensic visual effects */
+.data-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(197, 198, 205, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 198, 205, 0.35) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.data-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.scanner-line {
+  height: 2px;
+  background: #00d2ff;
+  box-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  animation: scan 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { top: 0%; opacity: 0.2; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 98%; opacity: 0.2; }
+}
+
+/* Registration marks (+) */
+.registration-mark {
+  position: relative;
+}
+.registration-mark::before,
+.registration-mark::after {
+  content: '+';
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  color: #00677f;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.mark-tl::before { top: -8px; left: -8px; }
+.mark-tr::after { top: -8px; right: -8px; }
+.mark-bl::before { bottom: -8px; left: -8px; }
+.mark-br::after { bottom: -8px; right: -8px; }
+
+/* Safe area padding for mobile bottom nav */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px);
+}
+
