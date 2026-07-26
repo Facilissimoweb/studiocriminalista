@@ -14,6 +14,10 @@
   .font-mono-tech {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  .font-abel {
+    font-family: 'Abel', sans-serif;
+  }
 }
 
 /* Custom forensic visual effects */

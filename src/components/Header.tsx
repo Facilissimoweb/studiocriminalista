@@ -60,50 +60,50 @@ export const Header: React.FC<HeaderProps> = ({
         <nav className="hidden md:flex items-center gap-5">
           <button
             onClick={() => handleNavClick('home')}
-            className={`font-mono-tech text-[12px] uppercase tracking-widest px-2.5 py-1.5 transition-colors ${
+            className={`font-abel text-[16px] uppercase tracking-wider px-2.5 py-1.5 transition-colors ${
               currentTab === 'home' 
                 ? 'text-[#00677f] font-bold border-b-2 border-[#00677f]' 
-                : 'text-[#44474d] hover:text-[#00677f]'
+                : 'text-[#44474d] font-bold hover:text-[#00677f]'
             }`}
           >
             Home
           </button>
           <button
             onClick={() => handleNavClick('elena')}
-            className={`font-mono-tech text-[12px] uppercase tracking-widest px-2.5 py-1.5 transition-colors ${
+            className={`font-abel text-[16px] uppercase tracking-wider px-2.5 py-1.5 transition-colors ${
               currentTab === 'elena' 
                 ? 'text-[#00677f] font-bold border-b-2 border-[#00677f]' 
-                : 'text-[#44474d] hover:text-[#00677f]'
+                : 'text-[#44474d] font-bold hover:text-[#00677f]'
             }`}
           >
             Elena Angelini
           </button>
           <button
             onClick={() => handleNavClick('indagini')}
-            className={`font-mono-tech text-[12px] uppercase tracking-widest px-2.5 py-1.5 transition-colors ${
+            className={`font-abel text-[16px] uppercase tracking-wider px-2.5 py-1.5 transition-colors ${
               currentTab === 'indagini' 
                 ? 'text-[#00677f] font-bold border-b-2 border-[#00677f]' 
-                : 'text-[#44474d] hover:text-[#00677f]'
+                : 'text-[#44474d] font-bold hover:text-[#00677f]'
             }`}
           >
             Indagini
           </button>
           <button
             onClick={() => handleNavClick('metodologie')}
-            className={`font-mono-tech text-[12px] uppercase tracking-widest px-2.5 py-1.5 transition-colors ${
+            className={`font-abel text-[16px] uppercase tracking-wider px-2.5 py-1.5 transition-colors ${
               currentTab === 'metodologie' 
                 ? 'text-[#00677f] font-bold border-b-2 border-[#00677f]' 
-                : 'text-[#44474d] hover:text-[#00677f]'
+                : 'text-[#44474d] font-bold hover:text-[#00677f]'
             }`}
           >
             Metodologie
           </button>
           <button
             onClick={() => handleNavClick('contatti')}
-            className={`font-mono-tech text-[12px] uppercase tracking-widest px-2.5 py-1.5 transition-colors ${
+            className={`font-abel text-[16px] uppercase tracking-wider px-2.5 py-1.5 transition-colors ${
               currentTab === 'contatti' 
                 ? 'text-[#00677f] font-bold border-b-2 border-[#00677f]' 
-                : 'text-[#44474d] hover:text-[#00677f]'
+                : 'text-[#44474d] font-bold hover:text-[#00677f]'
             }`}
           >
             Contatti
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenTriage}
-            className="font-mono-tech text-[11px] uppercase tracking-wider bg-[#000000] text-white font-bold px-3.5 py-2 hover:bg-[#00677f] transition-all flex items-center gap-2"
+            className="font-abel text-[15px] uppercase tracking-wider bg-[#000000] text-white font-bold px-3.5 py-2 hover:bg-[#00677f] transition-all flex items-center gap-2"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#00d2ff]" />
             Analisi Caso

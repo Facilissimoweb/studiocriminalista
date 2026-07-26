@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavTab, Methodology, Dossier } from './types';
 import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
@@ -19,6 +19,11 @@ export default function App() {
   const [isTriageOpen, setIsTriageOpen] = useState(false);
   const [preselectedCode, setPreselectedCode] = useState<string | undefined>(undefined);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Scroll to top whenever currentTab changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [currentTab]);
 
   const handleOpenMethodologyDetail = (m: Methodology) => {
     setSelectedMethodology(m);
