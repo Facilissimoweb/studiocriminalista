@@ -252,6 +252,19 @@ interface ElenaAngeliniViewProps {
 export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTriage }) => {
   const [selectedFilter, setSelectedFilter] = useState<ActivityCategory>('Tutte le attività');
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+  // Reset page on filter or search change
+  const handleFilterChange = (cat: ActivityCategory) => {
+    setSelectedFilter(cat);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (q: string) => {
+    setSearchQuery(q);
+    setCurrentPage(1);
+  };
 
   const filteredActivities = ACTIVITIES.filter((item) => {
     const matchesCategory = selectedFilter === 'Tutte le attività' || item.category === selectedFilter;
@@ -261,6 +274,17 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
       item.date.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesQuery;
   });
+
+  const totalPages = Math.ceil(filteredActivities.length / itemsPerPage) || 1;
+  const paginatedActivities = filteredActivities.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const getCategoryCount = (cat: ActivityCategory) => {
+    if (cat === 'Tutte le attività') return ACTIVITIES.length;
+    return ACTIVITIES.filter((a) => a.category === cat).length;
+  };
 
   const getCategoryBadgeColor = (category: string) => {
     switch (category) {
@@ -392,7 +416,7 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
           </div>
 
           <div className="text-xs font-mono-tech text-[#75777e]">
-            {filteredActivities.length} attività registrate
+            Mostrando {paginatedActivities.length} di {filteredActivities.length} attività ({ACTIVITIES.length} totali)
           </div>
         </div>
 
@@ -400,80 +424,169 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
         <div className="bg-[#ffffff] border border-[#c5c6cd] p-4 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap gap-1.5 font-mono-tech text-xs">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedFilter(cat)}
-                  className={`px-3.5 py-2 uppercase transition-all font-bold ${
-                    selectedFilter === cat
-                      ? 'bg-[#000000] text-white shadow-xs'
-                      : 'bg-[#efedef] text-[#44474d] hover:bg-[#eae7ea] hover:text-[#000000]'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {CATEGORIES.map((cat) => {
+                const count = getCategoryCount(cat);
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => handleFilterChange(cat)}
+                    className={`px-3 py-2 uppercase transition-all font-bold flex items-center gap-2 ${
+                      selectedFilter === cat
+                        ? 'bg-[#000000] text-white shadow-xs'
+                        : 'bg-[#efedef] text-[#44474d] hover:bg-[#eae7ea] hover:text-[#000000]'
+                    }`}
+                  >
+                    <span>{cat}</span>
+                    <span
+                      className={`text-[10px] px-1.5 py-0.5 rounded-full font-mono-tech ${
+                        selectedFilter === cat
+                          ? 'bg-[#00677f] text-white'
+                          : 'bg-[#c5c6cd] text-[#1b1b1d]'
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="relative w-full md:w-64">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Filtra attività..."
-                className="w-full bg-[#f5f3f5] border border-[#c5c6cd] h-9 pl-8 pr-3 font-mono-tech text-xs text-[#1b1b1d] focus:outline-none focus:border-[#00677f]"
-              />
-              <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#75777e]" />
+            <div className="relative w-full md:w-72 flex items-center gap-2">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => handleSearchChange(e.target.value)}
+                  placeholder="Filtra attività per parola..."
+                  className="w-full bg-[#f5f3f5] border border-[#c5c6cd] h-9 pl-8 pr-3 font-mono-tech text-xs text-[#1b1b1d] focus:outline-none focus:border-[#00677f]"
+                />
+                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#75777e]" />
+              </div>
+
+              {(searchQuery || selectedFilter !== 'Tutte le attività') && (
+                <button
+                  onClick={() => {
+                    setSelectedFilter('Tutte le attività');
+                    setSearchQuery('');
+                    setCurrentPage(1);
+                  }}
+                  className="h-9 px-2.5 bg-[#efedef] hover:bg-[#c5c6cd] text-xs font-mono-tech font-bold uppercase transition-colors shrink-0"
+                  title="Azzera filtri"
+                >
+                  Reset
+                </button>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Timeline Items */}
+        {/* Timeline Items Query Loop */}
         <div className="space-y-4">
           {filteredActivities.length === 0 ? (
-            <div className="bg-[#ffffff] border border-[#c5c6cd] p-8 text-center font-mono-tech text-xs text-[#75777e]">
-              Nessuna attività trovata per il filtro o la ricerca applicata.
+            <div className="bg-[#ffffff] border border-[#c5c6cd] p-8 text-center font-mono-tech text-xs text-[#75777e] space-y-3">
+              <p>Nessuna attività trovata per il filtro o la ricerca applicata.</p>
+              <button
+                onClick={() => {
+                  setSelectedFilter('Tutte le attività');
+                  setSearchQuery('');
+                  setCurrentPage(1);
+                }}
+                className="px-4 py-2 bg-[#00677f] text-white uppercase font-bold text-xs hover:bg-[#000000] transition-colors"
+              >
+                Azzera Filtri
+              </button>
             </div>
           ) : (
-            filteredActivities.map((act) => (
-              <div
-                key={act.id}
-                className="bg-[#ffffff] border border-[#c5c6cd] p-5 sm:p-6 hover:border-[#00677f] transition-all relative overflow-hidden group shadow-xs hover:shadow-md"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-[#efedef] pb-3 mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 border font-mono-tech text-[10px] font-bold uppercase ${getCategoryBadgeColor(act.category)}`}>
-                      {getCategoryIcon(act.category)}
-                      {act.category}
-                    </span>
-                    <span className="font-mono-tech text-xs font-bold text-[#00677f] uppercase">
-                      {act.date}
-                    </span>
+            paginatedActivities.map((act, index) => {
+              const globalIndex = (currentPage - 1) * itemsPerPage + index + 1;
+              return (
+                <div
+                  key={act.id}
+                  className="bg-[#ffffff] border border-[#c5c6cd] border-l-4 border-l-[#00677f] p-5 sm:p-6 hover:border-[#00677f] transition-all relative overflow-hidden group shadow-xs hover:shadow-md"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-[#efedef] pb-3 mb-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-mono-tech text-[10px] text-[#75777e] font-bold">
+                        REF #{globalIndex.toString().padStart(2, '0')}
+                      </span>
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 border font-mono-tech text-[10px] font-bold uppercase ${getCategoryBadgeColor(act.category)}`}>
+                        {getCategoryIcon(act.category)}
+                        {act.category}
+                      </span>
+                      <span className="font-mono-tech text-xs font-bold text-[#00677f] uppercase">
+                        {act.date}
+                      </span>
+                    </div>
                   </div>
+
+                  <h3 className="font-headline text-lg md:text-xl font-bold text-[#000000] mb-2 group-hover:text-[#00677f] transition-colors">
+                    {act.title}
+                  </h3>
+
+                  <p className="font-body text-xs sm:text-sm text-[#44474d] leading-relaxed">
+                    {act.description}
+                  </p>
+
+                  {act.bullets && act.bullets.length > 0 && (
+                    <ul className="mt-3 space-y-1.5 pl-2 border-l-2 border-[#00677f]/40 font-body text-xs text-[#1b1b1d]">
+                      {act.bullets.map((bullet, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-[#00677f] font-bold">•</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-
-                <h3 className="font-headline text-lg md:text-xl font-bold text-[#000000] mb-2 group-hover:text-[#00677f] transition-colors">
-                  {act.title}
-                </h3>
-
-                <p className="font-body text-xs sm:text-sm text-[#44474d] leading-relaxed">
-                  {act.description}
-                </p>
-
-                {act.bullets && act.bullets.length > 0 && (
-                  <ul className="mt-3 space-y-1.5 pl-2 border-l-2 border-[#00677f]/40 font-body text-xs text-[#1b1b1d]">
-                    {act.bullets.map((bullet, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-[#00677f] font-bold">•</span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))
+              );
+            })
           )}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-between border-t border-[#c5c6cd] pt-6 font-mono-tech text-xs">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              className={`px-4 py-2 border border-[#c5c6cd] uppercase font-bold transition-all ${
+                currentPage === 1
+                  ? 'opacity-40 cursor-not-allowed bg-[#efedef]'
+                  : 'bg-white hover:bg-[#00677f] hover:text-white'
+              }`}
+            >
+              ← Precedente
+            </button>
+
+            <div className="flex items-center gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`w-8 h-8 flex items-center justify-center border font-bold transition-all ${
+                    currentPage === page
+                      ? 'bg-[#000000] text-white border-[#000000]'
+                      : 'bg-white text-[#44474d] border-[#c5c6cd] hover:border-[#00677f]'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              className={`px-4 py-2 border border-[#c5c6cd] uppercase font-bold transition-all ${
+                currentPage === totalPages
+                  ? 'opacity-40 cursor-not-allowed bg-[#efedef]'
+                  : 'bg-white hover:bg-[#00677f] hover:text-white'
+              }`}
+            >
+              Successivo →
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );
