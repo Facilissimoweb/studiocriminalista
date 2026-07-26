@@ -96,7 +96,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 pt-16 pb-20 md:pb-8">
+      <main className="flex-1 pt-16 pb-20 md:pb-8 bg-[#000000]">
         {currentTab === 'home' && (
           <HomeView
             setCurrentTab={setCurrentTab}
