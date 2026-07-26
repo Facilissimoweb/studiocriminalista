@@ -50,8 +50,16 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
   const endItem = Math.min(currentPage * itemsPerPage, filteredTestimonials.length);
 
   return (
-    <section className="bg-[#fbf9fb] py-16 md:py-24 border-t border-[#c5c6cd]">
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+    <section 
+      className="relative py-16 md:py-24 border-t border-[#c5c6cd] bg-cover bg-center bg-no-repeat overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(251, 249, 251, 0.92), rgba(245, 243, 245, 0.95)), url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&q=80&w=1920')`
+      }}
+    >
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#c5c6cd] pb-6 mb-8 gap-6">
