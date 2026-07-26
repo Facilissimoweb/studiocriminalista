@@ -406,9 +406,17 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
         </div>
       </section>
 
-      {/* Activity Register Section */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto space-y-6">
-        <div className="border-b border-[#c5c6cd] pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      {/* Activity Register Section with Forensic Background Image */}
+      <section 
+        className="relative px-6 md:px-12 max-w-7xl mx-auto my-8 p-6 md:p-10 border border-[#c5c6cd] shadow-sm space-y-6 overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(251, 249, 251, 0.91), rgba(245, 243, 245, 0.94)), url('https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&q=80&w=1600')`
+        }}
+      >
+        {/* Subtle grid watermark */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+
+        <div className="relative z-10 border-b border-[#c5c6cd] pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <span className="font-mono-tech text-xs text-[#00677f] uppercase font-bold tracking-widest block mb-1">
               // REGISTRO ATTIVITÀ
@@ -418,13 +426,13 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
             </h2>
           </div>
 
-          <div className="text-xs font-mono-tech text-[#75777e]">
+          <div className="text-xs font-mono-tech text-[#75777e] bg-white/80 px-3 py-1 border border-[#c5c6cd]">
             Mostrando {paginatedActivities.length} di {filteredActivities.length} attività ({ACTIVITIES.length} totali)
           </div>
         </div>
 
         {/* Category Filter & Search Bar */}
-        <div className="bg-[#ffffff] border border-[#c5c6cd] p-4 space-y-4">
+        <div className="relative z-10 bg-[#ffffff] border border-[#c5c6cd] p-4 space-y-4 shadow-2xs">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap gap-1.5 font-mono-tech text-xs">
               {CATEGORIES.map((cat) => {
@@ -484,7 +492,7 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
         </div>
 
         {/* Timeline Items Query Loop */}
-        <div className="space-y-4">
+        <div className="relative z-10 space-y-4">
           {filteredActivities.length === 0 ? (
             <div className="bg-[#ffffff] border border-[#c5c6cd] p-8 text-center font-mono-tech text-xs text-[#75777e] space-y-3">
               <p>Nessuna attività trovata per il filtro o la ricerca applicata.</p>
@@ -548,7 +556,7 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between border-t border-[#c5c6cd] pt-6 font-mono-tech text-xs">
+          <div className="relative z-10 flex items-center justify-between border-t border-[#c5c6cd] pt-6 font-mono-tech text-xs">
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

@@ -11,8 +11,26 @@ import { ContattiView } from './components/ContattiView';
 import { DetailDrawer } from './components/DetailDrawer';
 import { TriageModal } from './components/TriageModal';
 
+const VALID_TABS: NavTab[] = ['home', 'elena', 'indagini', 'metodologie', 'contatti'];
+
+function getInitialTab(): NavTab {
+  try {
+    const hash = window.location.hash.replace('#', '');
+    if (VALID_TABS.includes(hash as NavTab)) {
+      return hash as NavTab;
+    }
+    const stored = localStorage.getItem('app_current_tab');
+    if (stored && VALID_TABS.includes(stored as NavTab)) {
+      return stored as NavTab;
+    }
+  } catch (e) {
+    console.error('Failed to read tab state', e);
+  }
+  return 'home';
+}
+
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<NavTab>('elena');
+  const [currentTab, setCurrentTab] = useState<NavTab>(getInitialTab);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedMethodology, setSelectedMethodology] = useState<Methodology | null>(null);
   const [selectedDossier, setSelectedDossier] = useState<Dossier | null>(null);
@@ -20,10 +38,30 @@ export default function App() {
   const [preselectedCode, setPreselectedCode] = useState<string | undefined>(undefined);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Scroll to top whenever currentTab changes
+  // Sync currentTab to URL hash and localStorage, and scroll to top
   useEffect(() => {
+    try {
+      localStorage.setItem('app_current_tab', currentTab);
+      if (window.location.hash !== `#${currentTab}`) {
+        window.history.replaceState(null, '', `#${currentTab}`);
+      }
+    } catch (e) {
+      console.error('Failed to save tab state', e);
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [currentTab]);
+
+  // Handle browser back/forward and external hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (VALID_TABS.includes(hash as NavTab)) {
+        setCurrentTab(hash as NavTab);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const handleOpenMethodologyDetail = (m: Methodology) => {
     setSelectedMethodology(m);
