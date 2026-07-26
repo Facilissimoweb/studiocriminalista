@@ -66,3 +66,19 @@ export interface EvidenceSample {
   dateAdded: string;
   details: string;
 }
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  authorRole: string;
+  category: string;
+  status: 'Risolto' | 'Innocenza Dimostrata' | 'Caso Riaperto' | 'Archiviato';
+  caseCode?: string;
+}
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+}

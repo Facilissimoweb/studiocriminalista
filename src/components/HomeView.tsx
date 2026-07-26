@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavTab } from '../types';
 import { EvidenceScannerWidget } from './EvidenceScannerWidget';
+import { TestimonialsSection } from './TestimonialsSection';
+import { FaqSection } from './FaqSection';
 import { ArrowRight, FolderKanban, Box, Brain, Dna, Gavel } from 'lucide-react';
 
 interface HomeViewProps {
@@ -146,7 +148,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
               <div className="font-mono-tech text-xs text-[#75777e] mb-4 font-bold">02 / VERIFICA SCENARI</div>
               <Box className="w-10 h-10 text-[#00677f] mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="font-headline text-lg font-bold mb-2">Ricostruzione 3D</h3>
-              <p class="font-body text-xs text-[#44474d] leading-relaxed">
+              <p className="font-body text-xs text-[#44474d] leading-relaxed">
                 Simulazione scientifica delle dinamiche dell'evento per validare o confutare le ipotesi accusatorie.
               </p>
             </div>
@@ -178,6 +180,18 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
       <section className="container mx-auto px-6 md:px-12">
         <EvidenceScannerWidget />
       </section>
+
+      {/* Testimonials - Dicono di Noi */}
+      <TestimonialsSection onOpenTriage={onOpenTriage} />
+
+      {/* FAQ Section */}
+      <FaqSection
+        onOpenTriage={onOpenTriage}
+        onContactClick={() => {
+          setCurrentTab('contatti');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
 
       {/* Call to Action Section */}
       <section className="bg-[#000000] text-white py-16 md:py-24 border-y border-[#39475f]">

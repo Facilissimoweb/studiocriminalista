@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { DOSSIERS } from '../data/forensicData';
 import { Dossier } from '../types';
+import { TestimonialsSection } from './TestimonialsSection';
+import { FaqSection } from './FaqSection';
 import { ChevronDown, ChevronUp, ShieldCheck, Microscope, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface IndaginiViewProps {
@@ -250,6 +252,13 @@ export const IndaginiView: React.FC<IndaginiViewProps> = ({ onOpenDossier, onOpe
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsSection onOpenTriage={onOpenTriage} />
+
+      {/* FAQ */}
+      <FaqSection onOpenTriage={onOpenTriage} />
     </div>
   );
 };
+

@@ -1,4 +1,4 @@
-import { TeamMember, Dossier, Methodology, EvidenceSample } from '../types';
+import { TeamMember, Dossier, Methodology, EvidenceSample, Testimonial, FaqItem } from '../types';
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
@@ -233,3 +233,110 @@ export const INITIAL_EVIDENCE_SAMPLES: EvidenceSample[] = [
     details: 'Profilo genetico estratto da touch DNA. STR tipizzato su 24 loci. Corrispondenza esclusione sospetto A.'
   }
 ];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 't-01',
+    quote: 'Un Amministratore Delegato, ingiustamente accusato di un reato che non aveva commesso, è riuscito a dimostrare la propria innocenza grazie al team.',
+    authorRole: 'Amministratore Delegato',
+    category: 'Penale Societario',
+    status: 'Risolto',
+    caseCode: 'CASO_PS_892'
+  },
+  {
+    id: 't-02',
+    quote: 'In ambito lavorativo, un operaio specializzato, vittima di minacce e licenziamento ingiusto, è riuscito a ottenere un risarcimento economico persino superiore alle proprie aspettative.',
+    authorRole: 'Operaio Specializzato',
+    category: 'Diritto del Lavoro',
+    status: 'Risolto',
+    caseCode: 'CASO_DL_401'
+  },
+  {
+    id: 't-03',
+    quote: "L'intervento della squadra di criminologi e dei legali ha inoltre permesso a un pensionato di ottenere un processo equo, ribaltando una situazione in cui persino la sua famiglia faticava a credergli.",
+    authorRole: 'Pensionato',
+    category: 'Processo Equo',
+    status: 'Risolto',
+    caseCode: 'CASO_PE_112'
+  },
+  {
+    id: 't-04',
+    quote: "Infine, l'offerta di formazione narrativa si è rivelata un prezioso strumento per i docenti, aiutando i giovani a prendere maggiore consapevolezza e serietà su temi delicati come l'aggressività, la gelosia, il consenso e l'abuso di sostanze.",
+    authorRole: 'Docenti e Studenti',
+    category: 'Formazione Narrativa',
+    status: 'Risolto',
+    caseCode: 'CASO_FN_550'
+  },
+  {
+    id: 't-05',
+    quote: 'Siamo riusciti a impugnare un testamento olografo falso che escludeva gli eredi legittimi. La perizia calligrafica dello studio ha svelato le alterazioni microscopiche del tratto e dell\'inchiostro.',
+    authorRole: 'Erede Legittimo',
+    category: 'Grafologia Forense',
+    status: 'Risolto',
+    caseCode: 'CASO_GF_309'
+  },
+  {
+    id: 't-06',
+    quote: 'Quando la procura voleva archiviare il caso di mio fratello come suicidio, lo studio ha eseguito una meticolosa autopsia psicologica e l\'analisi dei reperti con FORA 3D, ottenendo la riapertura delle indagini per omicidio.',
+    authorRole: 'Familiare della Vittima',
+    category: 'Revisione Morti Sospette',
+    status: 'Risolto',
+    caseCode: 'CASO_MS_771'
+  },
+  {
+    id: 't-07',
+    quote: 'Grazie alla ricostruzione fotogrammetrica 3D delle traiettorie balistiche operata dallo Studio Angelini, è stata dimostrata la natura puramente accidentale dello sparo, scagionando il mio assistito.',
+    authorRole: 'Avvocato Penalista',
+    category: 'Balistica & Ricostruzione 3D',
+    status: 'Risolto',
+    caseCode: 'CASO_BAL_604'
+  },
+  {
+    id: 't-08',
+    quote: 'Un incubo di cyberstalking e diffamazione online risolto in pochi giorni. Gli esperti di digital forensics hanno tracciato gli indirizzi IP e clonato i dispositivi nel pieno rispetto della catena di custodia.',
+    authorRole: 'Libera Professionista',
+    category: 'Informatica Forense',
+    status: 'Risolto',
+    caseCode: 'CASO_CYB_228'
+  }
+];
+
+export const FAQ_ITEMS: FaqItem[] = [
+  {
+    id: 'faq-01',
+    question: 'Cos\'è un\'indagine difensiva ex art. 391-bis c.p.p. e come protegge i miei diritti?',
+    answer: 'Il Codice di Procedura Penale italiano consente alla difesa di svolgere indagini parallele e autonome rispetto alla Procura. Attraverso lo Studio Elena Angelini, il vostro avvocato può raccogliere elementi di prova, svolgere perizie tecniche, ascoltare persone informate sui fatti e produrre dossier scientifici con lo stesso valore legale delle prove dell\'accusa.',
+    category: 'Indagini Difensive'
+  },
+  {
+    id: 'faq-02',
+    question: 'Come garantite la riservatezza e il segreto professionale sulle informazioni fornite?',
+    answer: 'Ogni contatto, documento o reperto affidato allo studio è coperto dal più rigoroso segreto professionale peritale e dalle normative sul GDPR Forense (ISO/IEC 27001 & 27037). Tutte le analisi e comunicazioni avvengono tramite canali protetti e server cifrati senza alcuna diffusione a terzi.',
+    category: 'Riservatezza & Privacy'
+  },
+  {
+    id: 'faq-03',
+    question: 'Quanto costa una prima valutazione di fattibilità e come si svolge?',
+    answer: 'Offriamo un servizio di Triage preliminare per analizzare l\'oggetto del quesito, la presenza di reperti o atti e determinare la reale fattibilità scientifica dell\'accertamento. La valutazione preliminare definisce tempi, costi trasparenti e la composizione della Taskforce necessaria prima di avviare l\'incarico.',
+    category: 'Costi e Tempi'
+  },
+  {
+    id: 'faq-04',
+    question: 'Le relazioni e le perizie dello Studio Angelini sono valide in Tribunale?',
+    answer: 'Assolutamente sì. Tutti i report dello studio sono redatti secondo gli standard internazionali ISO/IEC 17025 e 27037 e linee guida ENFSI. I nostri consulenti figurano regolarmente negli Albi dei Periti del Tribunale e intervengono direttamente in udienza come Consulenti Tecnici di Parte (CTP).',
+    category: 'Valore Legale'
+  },
+  {
+    id: 'faq-05',
+    question: 'Cosa devo fare se possiedo uno smartphone, un video o un documento da far analizzare?',
+    answer: 'È fondamentale NON alterare il reperto: non accendere/spegnere continuamente il dispositivo, non aprire i file originali e non installare app. Contattate immediatamente la Taskforce per concordare l\'acquisizione forense in modalità Bit-Stream con verbalizzazione della Catena di Custodia.',
+    category: 'Gestione Reperti'
+  },
+  {
+    id: 'faq-06',
+    question: 'Potete intervenire anche su casi vecchi o dopo una sentenza di primo grado?',
+    answer: 'Sì. Realizziamo revisioni di dibattimento e perizie per ricorsi in Appello o Cassazione, nonché istanze di Revisione della Sentenza di Condanna previa emersione di nuove prove scientifiche o riesame di reperti con tecnologie avanzate (es. FORA 3D, NGS per il DNA).',
+    category: 'Revisione Processi'
+  }
+];
+
