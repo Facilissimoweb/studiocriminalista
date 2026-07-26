@@ -4,30 +4,30 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'elena-angelini',
     name: 'Elena Angelini',
-    role: 'CHIEF ANALYST',
-    title: 'Esperta in Criminalistica e Digital Forensics',
-    bio: 'Coordinatrice dei protocolli di verità scientifica. Oltre 15 anni di attività peritale nei principali casi giudiziari nazionali, con specializzazione in repertazione genetica e investigazioni difensive avanzate.',
-    authLevel: '01 // Senior',
+    role: 'TITOLARE UNICA & CHIEF ANALYST',
+    title: 'Criminologa, Criminalista e Titolare Unica dello Studio',
+    bio: 'Unica titolare e direttrice responsabile dello Studio di Criminalistica. Coordina direttamente i protocolli d’indagine e le perizie, avvalendosi di qualificate competenze professionali e consulenti specialistici esterni in base alle esigenze di ciascun caso.',
+    authLevel: '01 // Titolare Unica',
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800',
     icon: 'terminal'
   },
   {
     id: 'marco-valli',
     name: 'Dr. Marco Valli',
-    role: 'LEGAL STRATEGIST',
-    title: 'Specialista in diritto penale e supporto procedurale',
-    bio: 'Consulente legale di taskforce per l’articolazione delle strategie difensive di natura tecnica. Curatore della conformità procedurale ex art. 391-bis c.p.p. per la validità probatoria in dibattimento.',
-    authLevel: '02 // Legal',
+    role: 'CONSULENTE ESTERNO // LEGAL',
+    title: 'Specialista in Diritto Penale e Supporto Procedurale (Rete Esterna)',
+    bio: 'Professionista esterno con cui lo Studio collabora per l’articolazione delle strategie difensive di natura tecnica e la verifica di conformità procedurale ex art. 391-bis c.p.p.',
+    authLevel: '02 // Consulente Esterno',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800',
     icon: 'gavel'
   },
   {
     id: 'luca-moretti',
     name: 'Ing. Luca Moretti',
-    role: 'TECHNICAL OFFICER',
-    title: 'Responsabile dei laboratori di analisi chimica e balistica',
-    bio: 'Ingegnere forense e perito balistico iscritto all’Albo dei Periti. Direttore dei laboratori di microscopia elettronica SEM-EDX, fotogrammetria 3D e analisi di residui da sparo.',
-    authLevel: '02 // Lab_Head',
+    role: 'CONSULENTE ESTERNO // LAB & BALISTICA',
+    title: 'Ingegnere Forense e Perito Balistico (Rete Esterna)',
+    bio: 'Consulente specialistico esterno referente per le analisi di microscopia elettronica SEM-EDX, fotogrammetria 3D e rilievi balistici strumentali.',
+    authLevel: '02 // Consulente Esterno',
     image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=800',
     icon: 'science'
   }

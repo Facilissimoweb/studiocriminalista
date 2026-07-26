@@ -101,10 +101,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setCurrentTab, onOpenTriage 
 
           <div className="md:col-span-7 space-y-6">
             <p className="font-body text-base md:text-lg text-[#44474d] leading-relaxed">
-              Lo Studio Elena Angelini nasce con una missione precisa: rendere la scienza accessibile alla difesa. Crediamo che il diritto di essere difesi non debba dipendere dalla reputazione o dal reddito, ma dalla qualità tecnica degli accertamenti.
+              Lo Studio di Criminalistica, guidato da <strong>Elena Angelini in qualità di unica titolare</strong>, nasce con una missione precisa: rendere la scienza e la criminalistica forense pienamente accessibili alla difesa.
             </p>
             <p className="font-body text-sm text-[#44474d] leading-relaxed">
-              Operiamo con assoluta indipendenza e rigore, fornendo consulenza criminalistica avanzata a studi legali e privati. In un sistema penale complesso, la verità non emerge spontaneamente: deve essere estratta dai dati, dai reperti e dalle testimonianze attraverso metodologie validate dalla comunità scientifica internazionale.
+              Elena Angelini gestisce direttamente la direzione d'indagine e le perizie, avvalendosi di una rete selezionata di qualificati profili professionali e consulenti esterni allo studio (medici legali, giuristi, periti balistici e analisti informatici) per rispondere con massima precisione scientifica alle specificità di ciascun caso.
             </p>
 
             <div className="pt-6 border-t border-[#c5c6cd] grid grid-cols-3 gap-4 text-center sm:text-left">

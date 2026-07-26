@@ -42,23 +42,31 @@ export const ContattiView: React.FC<ContattiViewProps> = ({ onOpenTriage }) => {
               UNIT CODE: EA-CNTC-2024 // DIRECT LINE
             </span>
             <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-md">
-              Contatti & Forensic Taskforce
+              Contatti & Consulenza Specializzata
             </h1>
             <p className="font-body text-base text-gray-200 leading-relaxed max-w-2xl">
-              Accesso diretto ai protocolli investigativi. Il nostro team di esperti opera attraverso una metodologia di Taskforce integrata per garantire la massima precisione scientifica in ambito forense.
+              Accesso diretto allo Studio. Elena Angelini, in qualità di <strong>unica titolare</strong>, coordina e dirige ciascun caso avvalendosi di qualificati profili professionali e consulenti specialistici anche al di fuori dello studio.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Team Operativo Section */}
+      {/* Structure & External Network Section */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="font-headline text-xl font-bold uppercase text-[#000000]">
-            Team Operativo
-          </h2>
-          <div className="flex-1 h-px bg-[#c5c6cd]"></div>
-          <span className="font-mono-tech text-xs text-[#75777e]">STATION_ALPHA // INDEX_01</span>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+          <div>
+            <span className="font-mono-tech text-xs text-[#00677f] font-bold uppercase tracking-widest block mb-1">
+              ORGANIZZAZIONE & STRUTTURA PERITALE
+            </span>
+            <h2 className="font-headline text-2xl font-bold uppercase text-[#000000]">
+              Titolare Unica & Rete di Consulenza Esterna
+            </h2>
+          </div>
+          <span className="font-mono-tech text-xs text-[#75777e] bg-[#efedef] px-3 py-1.5 border border-[#c5c6cd]">STATION_ALPHA // INDEX_01</span>
+        </div>
+
+        <div className="bg-[#fbf9fb] border border-[#c5c6cd] border-l-4 border-l-[#00677f] p-4 md:p-5 mb-8 font-body text-xs md:text-sm text-[#44474d] leading-relaxed">
+          <strong>Nota di Trasparenza Professionale:</strong> Lo Studio Criminalistica Elena Angelini ha come <strong>unica titolare la Dott.ssa Elena Angelini</strong>. Per garantire il massimo livello di approfondimento multidisciplinare e coprire con accuratezza scientifica ogni singola sfaccettatura del procedimento penale o civile, lo Studio integra all'occorrenza competenze esterne di qualificati periti (medici legali, giuristi, periti balistici, ingegneri e analisti digitali).
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

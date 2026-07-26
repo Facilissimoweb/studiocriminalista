@@ -364,7 +364,7 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
                 INFORMAZIONI GENERALI
               </div>
               <div className="space-y-2.5 font-body text-xs text-gray-200">
-                <p><strong className="text-white">Ruolo:</strong> Consulente Criminologa e Criminalista</p>
+                <p><strong className="text-white">Qualifica:</strong> Unica Titolare dello Studio & Criminologa</p>
                 <p><strong className="text-white">Iscrizione:</strong> Esperto Criminologo Clinico ex art. 80</p>
                 <p><strong className="text-white">Sede:</strong> Rimini (RN) - c/o Arbor Vitae</p>
                 <p><strong className="text-white">Specializzazione:</strong> Profilazione, Stalking, Indagini Difensive e Vittimologia</p>
@@ -394,7 +394,10 @@ export const ElenaAngeliniView: React.FC<ElenaAngeliniViewProps> = ({ onOpenTria
           </div>
           <div className="md:col-span-9 space-y-4 font-body text-sm md:text-base text-[#44474d] leading-relaxed">
             <p>
-              Alla sinergica collaborazione di aziende, studi legali e altri professionisti di ambito criminologico ha affiancato la sensibilità coltivata nel supporto alle vittime di stalking e mobbing.
+              <strong className="text-[#000000]">Elena Angelini è l'unica titolare e direttrice responsabile dello Studio di Criminalistica.</strong> Nel rispetto del rigore scientifico di ciascun caso procedurale, dirige personalmente ogni indagine avvalendosi di qualificati profili professionali e consulenti specialistici esterni allo studio (tra cui medici legali, avvocati penalisti, ingegneri periti e analisti informatici forensi).
+            </p>
+            <p>
+              Alla sinergica collaborazione con aziende, studi legali e altri professionisti di ambito criminologico ha affiancato la sensibilità coltivata nel supporto alle vittime di stalking e mobbing.
             </p>
             <p>
               Mette a disposizione la propria esperienza e conoscenza per la difesa e la parte civile nei procedimenti penali e per le associazioni e gli enti di prevenzione del crimine e della violenza.
